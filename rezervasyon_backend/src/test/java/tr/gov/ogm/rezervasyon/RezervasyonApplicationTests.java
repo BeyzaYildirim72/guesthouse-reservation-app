@@ -1,10 +1,10 @@
-package tr.gov.ogm.rezervasyon;
+package tr.gov.ogm.reservation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RezervasyonApplicationTests {
+class reservationApplicationTests {
 
 	@Test
 	void contextLoads() {
