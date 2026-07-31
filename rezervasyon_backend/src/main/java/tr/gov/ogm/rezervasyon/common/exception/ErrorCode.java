@@ -26,6 +26,7 @@ public enum ErrorCode {
     TOKEN_EXPIRED(HttpStatus.UNAUTHORIZED, "Token süresi dolmuş"),
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "Bu işlem için yetkiniz yok"),
 
+    RESERVATION_NOT_FOUND(HttpStatus.NOT_FOUND, "Rezervasyon bulunamadı"),
     // ---- Generic ----
     VALIDATION_ERROR(HttpStatus.BAD_REQUEST, "Girilen bilgiler geçersiz"),
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Beklenmeyen bir hata oluştu");
