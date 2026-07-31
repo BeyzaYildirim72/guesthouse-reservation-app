@@ -24,8 +24,10 @@ public class Rezervasyon extends BaseEntity {
     @Column(nullable = false)
     private String misafirAdi;
 
-    @Column(nullable = false)
-    private Integer odaNo;
+    // Integer odaNo yerine Room tablosuyla ilişkilendirdik
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "room_id", nullable = false)
+    private Room room;
 
     @Column(nullable = false)
     private LocalDate girisTarihi;
@@ -36,4 +38,20 @@ public class Rezervasyon extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private RezervasyonDurum durum;
+
+    // Fiyatlandırma ve Yaş Kriterleri için Eklenen Alanlar
+    @Column(name = "total_price", nullable = false)
+    private double totalPrice;
+
+    @Column(name = "adult_count")
+    private int adultCount;
+
+    @Column(name = "child_above_12_count")
+    private int childAbove12Count;
+
+    @Column(name = "child_under_12_count")
+    private int childUnder12Count;
+
+    @Column(name = "cancellation_requested")
+    private boolean cancellationRequested = false; // 72 saat kala iptal talebi kontrolü için
 }
