@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Misafir Kayıt - OGM Misafirhane</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f8; display: flex; min-height: 100vh; width: 100%;">
+
+<!-- Sol Sidebar (Mevcut yapıyı koruyoruz) -->
+<div th:replace="~{fragments/sidebar :: sidebar('anasayfa')}"></div>
+
+<!-- Sağ Ana Kapsayıcı (Ortalanmış Form) -->
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-left: 260px; padding: 2rem;">
+
+    <!-- Beyaz Kart -->
+    <div style="background: white; border-radius: 16px; padding: 3rem 2.5rem; width: 100%; max-width: 420px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); text-align: center;">
+
+        <h2 style="font-size: 1.8rem; font-weight: 700; color: #111; margin: 0 0 0.5rem 0;">Hoşgeldiniz</h2>
+        <p style="color: #444; font-size: 0.95rem; margin-bottom: 2rem;">Kayıt olmak için lütfen bilgilerinizi girin.</p>
+
+        <!-- Form (onsubmit eklendi: Sayfa yenilenmeden yönlendirme yapar) -->
+        <form onsubmit="event.preventDefault(); window.location.href='/kayit-basarili';">
+
+            <!-- Email Alanı -->
+            <div style="background: #eef1f3; border: 1px solid #777; border-radius: 8px; padding: 0.5rem 0.8rem 0.8rem 0.8rem; margin-bottom: 1rem; text-align: left;">
+                <label style="display: block; font-size: 0.85rem; color: #333; margin-bottom: 0.3rem;">email</label>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="email" placeholder="email@ornek.com" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; outline: none; font-size: 0.9rem; color: #666; box-sizing: border-box;">
+                    <i class="bi bi-envelope" style="position: absolute; right: 12px; color: #666; font-size: 1.1rem;"></i>
+                </div>
+            </div>
+
+            <!-- Şifre Oluştur Alanı -->
+            <div style="background: #eef1f3; border: 1px solid #777; border-radius: 8px; padding: 0.5rem 0.8rem 0.8rem 0.8rem; margin-bottom: 1rem; text-align: left;">
+                <label style="display: block; font-size: 0.85rem; color: #333; margin-bottom: 0.3rem;">şifre oluştur</label>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="password" placeholder="*******" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; outline: none; font-size: 0.9rem; color: #666; box-sizing: border-box;">
+                    <i class="bi bi-lock" style="position: absolute; right: 12px; color: #666; font-size: 1.1rem;"></i>
+                </div>
+            </div>
+
+            <!-- Şifre Tekrar Alanı -->
+            <div style="background: #eef1f3; border: 1px solid #777; border-radius: 8px; padding: 0.5rem 0.8rem 0.8rem 0.8rem; margin-bottom: 1.5rem; text-align: left;">
+                <label style="display: block; font-size: 0.85rem; color: #333; margin-bottom: 0.3rem;">şifre tekrar</label>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="password" placeholder="*******" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; outline: none; font-size: 0.9rem; color: #666; box-sizing: border-box;">
+                    <i class="bi bi-lock" style="position: absolute; right: 12px; color: #666; font-size: 1.1rem;"></i>
+                </div>
+            </div>
+
+            <!-- Kayıt Ol Butonu -->
+            <button type="submit" style="width: 100%; background: #245332; color: white; border: none; padding: 1rem; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-bottom: 1.5rem;">
+                Kayıt Ol
+            </button>
+
+        </form>
+
+        <!-- Alt Bilgi -->
+        <p style="color: #666; font-size: 0.85rem; margin: 0;">
+            zaten kayıtlı OGM personeli iseniz <a href="/giris" style="color: #666; text-decoration: underline;">giriş yapın</a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

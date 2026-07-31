@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{fragments/header :: head('Giriş Yap')}"></th:block>
+</head>
+
+<body class="auth-body">
+
+<!-- ── Üst Navigasyon ── -->
+<div th:replace="~{fragments/header :: auth-navbar}"></div>
+
+<!-- ── Ana İçerik ── -->
+<main class="auth-main" id="main-content" role="main">
+  <div class="auth-container" aria-label="Giriş Seçenekleri">
+
+    <!-- ════════════════════════════════════════════
+         KART 1: Misafir & Kurum Personeli Girişi
+         ════════════════════════════════════════════ -->
+    <div class="auth-card" id="misafirKurumKart">
+
+      <!-- Kart Başlığı -->
+      <div class="auth-card-header hdr-green" id="misafirKurumBaslik">
+        <div class="hdr-icon">
+          <i class="bi bi-person-circle" aria-hidden="true"></i>
+        </div>
+        <div>
+          <div class="hdr-title">Misafir &amp; Kurum Personeli Girişi</div>
+          <div class="hdr-subtitle">Rezervasyon oluşturmak veya görüntülemek için seçiniz</div>
+        </div>
+      </div>
+
+      <!-- Rol Seçim Kartları -->
+      <div class="auth-card-body">
+        <div class="roles-grid">
+
+          <!-- Kurum Personeli -->
+          <div class="role-card" id="roleKurum"
+               onclick="selectRole(this, 'kurumFormPanel')"
+               role="button" tabindex="0"
+               aria-expanded="false"
+               aria-controls="kurumFormPanel"
+               onkeydown="if(event.key==='Enter'||event.key===' ') selectRole(this,'kurumFormPanel')">
+            <div class="role-icon-wrap ri-green" aria-hidden="true">
+              <i class="bi bi-person-badge-fill"></i>
+            </div>
+            <div>
+              <div class="role-title">Kurum Personeli</div>
+              <div class="role-desc">Kayıtlı OGM personeli olarak giriş yapın</div>
+              <div class="role-hint">→ Giriş bilgilerinizi aşağıya girin</div>
+            </div>
+          </div>
+
+          <!-- Misafir Girişi -->
+          <div class="role-card" id="roleMisafir"
+               onclick="handleMisafirGiris()"
+               role="button" tabindex="0"
+               aria-label="Misafir olarak devam et"
+               onkeydown="if(event.key==='Enter'||event.key===' ') handleMisafirGiris()">
+            <div class="role-icon-wrap ri-blue" aria-hidden="true">
+              <i class="bi bi-person"></i>
+            </div>
+            <div>
+              <div class="role-title">Misafir Girişi</div>
+              <!-- Yönlendirme hedefi düzeltildi -->
+              <a href="/misafir-kayit" style="text-decoration: none; color: inherit;">Misafir Girişi</a>
+            </div>
+          </div>
+
+        </div><!-- /roles-grid -->
+
+        <!-- ── Kurum Personeli Giriş Formu (Accordion) ── -->
+        <div class="login-form-panel" id="kurumFormPanel" role="region" aria-label="Kurum Personeli Giriş Formu">
+          <form id="kurumLoginForm" novalidate autocomplete="off">
+            <div class="form-grid-2" style="margin-top:.5rem;">
+
+              <!-- T.C. / Sicil No -->
+              <div>
+                <label class="ogm-label" for="kurumTc">
+                  <span style="color: #d32f2f;">*</span> T.C. / Sicil No / e-mail
+                </label>
+                <input id="kurumTc"
+                       type="text"
+                       class="ogm-input validate-live"
+                       data-error="tcError"
+                       placeholder="TC Kimlik, Sicil No veya e-mail"
+                       maxlength="20"
+                       autocomplete="username"
+                       aria-describedby="tcError"
+                       aria-required="true"/>
+                <div id="tcError" class="field-error" role="alert"></div>
+              </div>
+
+              <!-- Şifre -->
+              <div>
+                <label class="ogm-label" for="kurumSifre">
+                  <span class="req">*</span> Şifre
+                </label>
+                <div class="ogm-input-group">
+                  <input id="kurumSifre"
+                         type="password"
+                         class="ogm-input validate-live"
+                         data-error="sifreError"
+                         placeholder="Şifreniz"
+                         autocomplete="current-password"
+                         aria-describedby="sifreError"
+                         aria-required="true"/>
+                  <button type="button"
+                          class="eye-btn"
+                          onclick="togglePassword('kurumSifre', this)"
+                          aria-label="Şifreyi Göster/Gizle">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div id="sifreError" class="field-error" role="alert"></div>
+              </div>
+
+            </div><!-- /form-grid-2 -->
+
+            <!-- Seçenekler Satırı -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:.75rem;flex-wrap:wrap;gap:.5rem;">
+              <label style="display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--gray-600);cursor:pointer;">
+                <input type="checkbox" id="beniHatirla"
+                       style="width:14px;height:14px;accent-color:var(--ogm-700);">
+                Beni Hatırla
+              </label>
+              <a href="/sifre-sifirla"
+                 style="font-size:.78rem;color:var(--ogm-600);font-weight:600;">
+                Şifremi Unuttum
+              </a>
+            </div>
+
+            <!-- Giriş Butonu -->
+            <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
+              <button type="submit" class="btn-ogm btn-ogm-primary" style="min-width:140px;">
+                Giriş Yap &nbsp;→
+              </button>
+            </div>
+
+          </form>
+        </div><!-- /kurumFormPanel -->
+
+      </div><!-- /auth-card-body -->
+    </div><!-- /KART 1 -->
+
+    <!-- Destek Metni -->
+    <p class="auth-support">
+      Sorun yaşıyorsanız bilgi işlem birimi ile iletişime geçiniz.
+    </p>
+
+  </div><!-- /auth-container -->
+</main>
+
+<!-- ── Alt Bilgi ── -->
+<div th:replace="~{fragments/footer :: auth-footer}"></div>
+
+<!-- ── JS ── -->
+<th:block th:replace="~{fragments/header :: scripts}"></th:block>
+<script th:src="@{/js/auth.js}"></script>
+
+<script>
+  function handleMisafirGiris() {
+    // Misafir olarak devam et — profil oluştur veya direkt yönlendir
+    const card = document.getElementById('roleMisafir');
+    card.classList.toggle('selected');
+    // JS Yönlendirmesi yeni kayıt formuna gidecek şekilde düzeltildi
+    setTimeout(() => { window.location.href = '/misafir-kayit'; }, 300);
+  }
+</script>
+
+</body>
+</html>
