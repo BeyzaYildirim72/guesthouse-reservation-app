@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>tr.gov.ogm</groupId>
-	<artifactId>rezervasyon</artifactId>
+	<artifactId>reservation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
