@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserResponse activateUser(UUID id) {
+    public UserResponse activateUser(Long id) {
         User user = findUser(id);
         user.activate();
         return UserResponse.from(userRepository.save(user));
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserResponse deactivateUser(UUID id) {
+    public UserResponse deactivateUser(Long id) {
         User user = findUser(id);
         user.deactivate();
         return UserResponse.from(userRepository.save(user));
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll().stream().map(UserResponse::from).toList();
     }
 
-    private User findUser(UUID id) {
+    private User findUser(Long id) {
         return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
     }
 }

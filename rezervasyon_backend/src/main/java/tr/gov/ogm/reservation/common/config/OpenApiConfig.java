@@ -13,9 +13,9 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
  */
 @OpenAPIDefinition(
         info = @Info(
-                title = "Rezervasyon API",
+                title = "reservation API",
                 version = "1.0",
-                description = "OGM Rezervasyon servisleri için REST API dokümantasyonu"
+                description = "OGM reservation servisleri için REST API dokümantasyonu"
         ),
         security = @SecurityRequirement(name = "bearerAuth")
 )

@@ -1,26 +1,23 @@
 package tr.gov.ogm.reservation.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.Column;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+@MappedSuperclass
 @Getter
 @Setter
-@MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-
 public abstract class BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -37,10 +34,9 @@ public abstract class BaseEntity {
     @LastModifiedBy
     private String updatedBy;
 
-    @Column(nullable = false)
-    private boolean deleted = false;
+    private boolean isDelete = false;
 
     public void softDelete() {
-        this.deleted = true;
+        this.isDelete = true;
     }
 }

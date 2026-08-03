@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface UserService {
     UserResponse createStaffUser(CreateStaffUserRequest request);
-    UserResponse activateUser(UUID id);
-    UserResponse deactivateUser(UUID id);
+    UserResponse activateUser(Long id);
+    UserResponse deactivateUser(Long id);
     List<UserResponse> listUsers();
 }

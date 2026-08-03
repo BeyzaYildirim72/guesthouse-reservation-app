@@ -35,12 +35,12 @@ public class UserController {
     }
 
     @PatchMapping("/{id}/activate")
-    public ResponseEntity<ApiResponse<UserResponse>> activateUser(@PathVariable UUID id) {
+    public ResponseEntity<ApiResponse<UserResponse>> activateUser(@PathVariable Long id) {
         return ResponseEntity.ok(ApiResponse.success(userService.activateUser(id)));
     }
 
     @PatchMapping("/{id}/deactivate")
-    public ResponseEntity<ApiResponse<UserResponse>> deactivateUser(@PathVariable UUID id) {
+    public ResponseEntity<ApiResponse<UserResponse>> deactivateUser(@PathVariable Long id) {
         return ResponseEntity.ok(ApiResponse.success(userService.deactivateUser(id)));
     }
 

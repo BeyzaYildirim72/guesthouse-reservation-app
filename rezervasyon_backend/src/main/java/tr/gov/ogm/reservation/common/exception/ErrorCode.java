@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 /**
  * Uygulama genelindeki tüm iş hatalarını tek yerden yönetir.
- * Yeni bir feature eklendiğinde (rezervasyon, user, vs.) buraya
+ * Yeni bir feature eklendiğinde (reservation, user, vs.) buraya
  * kendi hata kodlarını ekle.
  */
 @Getter
@@ -29,6 +29,7 @@ public enum ErrorCode {
     TOKEN_EXPIRED(HttpStatus.UNAUTHORIZED, "Token süresi dolmuş"),
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "Bu işlem için yetkiniz yok"),
 
+    RESERVATION_NOT_FOUND(HttpStatus.NOT_FOUND, "reservation bulunamadı"),
     // ---- Generic ----
     VALIDATION_ERROR(HttpStatus.BAD_REQUEST, "Girilen bilgiler geçersiz"),
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Beklenmeyen bir hata oluştu");
