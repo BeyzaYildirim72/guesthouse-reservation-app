@@ -35,6 +35,31 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(errorCode.getStatus()).body(body);
     }
 
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse<Void>> handleUserAlreadyExists(UserAlreadyExistsException ex) {
+        return errorResponse(ErrorCode.USER_ALREADY_EXISTS, ex.getMessage());
+    }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<ApiResponse<Void>> handleInvalidCredentials(InvalidCredentialsException ex) {
+        return errorResponse(ErrorCode.INVALID_CREDENTIALS, ex.getMessage());
+    }
+
+    @ExceptionHandler(UserNotActiveException.class)
+    public ResponseEntity<ApiResponse<Void>> handleUserNotActive(UserNotActiveException ex) {
+        return errorResponse(ErrorCode.USER_NOT_ACTIVE, ex.getMessage());
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleUserNotFound(UserNotFoundException ex) {
+        return errorResponse(ErrorCode.USER_NOT_FOUND, ex.getMessage());
+    }
+
+    private ResponseEntity<ApiResponse<Void>> errorResponse(ErrorCode errorCode, String message) {
+        ApiResponse<Void> body = ApiResponse.error(errorCode.name(), message);
+        return ResponseEntity.status(errorCode.getStatus()).body(body);
+    }
+
     // ---- 2) @Valid ile DTO validasyon hataları ----
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<Map<String, String>>> handleValidationException(

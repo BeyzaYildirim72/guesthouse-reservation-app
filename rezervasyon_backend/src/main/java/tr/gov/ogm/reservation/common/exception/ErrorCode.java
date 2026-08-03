@@ -21,6 +21,9 @@ public enum ErrorCode {
     INVALID_RESET_TOKEN(HttpStatus.BAD_REQUEST, "Şifre sıfırlama linki geçersiz"),
     RESET_TOKEN_EXPIRED(HttpStatus.BAD_REQUEST, "Şifre sıfırlama linkinin süresi dolmuş"),
 
+    USER_ALREADY_EXISTS(HttpStatus.CONFLICT, "User already exists"),
+    USER_NOT_ACTIVE(HttpStatus.FORBIDDEN, "User account is not active"),
+
     // ---- Auth / Token ----
     INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "Token geçersiz"),
     TOKEN_EXPIRED(HttpStatus.UNAUTHORIZED, "Token süresi dolmuş"),

@@ -3,10 +3,10 @@ package tr.gov.ogm.reservation.common.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import tr.gov.ogm.reservation.entity.Role;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
@@ -24,15 +24,18 @@ public class JwtUtil {
         this.expirationMs = expirationMs;
     }
 
-    public String generateToken(String email) {
+    public String generateToken(String email, Role role) {
         Date now = new Date();
         Date expiry = new Date(now.getTime() + expirationMs);
 
         return Jwts.builder()
                 .subject(email)
+                .claim("role", role.name())
                 .issuedAt(now)
                 .expiration(expiry)
-                .signWith(secretKey, SignatureAlgorithm.HS256)
+                // signWith(key) — algorithm inferred from key type/size (SecretKey → HS256).
+                // The two-arg overload signWith(key, SignatureAlgorithm) is deprecated in JJWT 0.12.x.
+                .signWith(secretKey)
                 .compact();
     }
 
@@ -43,6 +46,15 @@ public class JwtUtil {
                 .parseSignedClaims(token)
                 .getPayload();
         return claims.getSubject();
+    }
+
+    public String extractRole(String token) {
+        Claims claims = Jwts.parser()
+                .verifyWith(secretKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
+        return claims.get("role", String.class);
     }
 
     public boolean isValid(String token) {
