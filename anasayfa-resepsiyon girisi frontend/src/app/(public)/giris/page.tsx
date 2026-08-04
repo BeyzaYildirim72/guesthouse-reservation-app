@@ -142,7 +142,7 @@ export default function LoginPage() {
 
           {/* GİRİŞ FORMU */}
           {showForm && (
-            <div className="w-full max-w-[440px] relative z-10 animate-[fadeSlideIn_0.35s_ease]">
+            <div className="w-full max-w-[440px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 animate-[fadeSlideIn_0.35s_ease]">
               <div className="bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] overflow-hidden border border-[#eaeaea]">
                 
                 <div className="bg-[#163a22] p-5 px-7 flex items-center justify-between">
