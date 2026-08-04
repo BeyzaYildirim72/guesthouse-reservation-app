@@ -64,7 +64,7 @@ export default function AnasayfaAbout() {
                 <h4 style={{ color: '#fff', fontSize: '15.5px', fontWeight: 700, marginBottom: '4px' }}>Hemen Rezervasyon Yapın</h4>
                 <p style={{ color: 'var(--nav-text)', fontSize: '12.5px', margin: 0 }}>Uygun tarih ve oda seçerek kolayca rezervasyon oluşturun</p>
               </div>
-              <a href="/oda-yonetimi" style={{
+              <a href="/giris" style={{
                 background: 'linear-gradient(135deg, #22c55e 0%, #ffffff 130%)', color: '#0a1a0a',
                 fontWeight: 700, fontSize: '13px', padding: '11px 20px',
                 borderRadius: '999px', whiteSpace: 'nowrap',
