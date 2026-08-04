@@ -69,7 +69,7 @@ export default function AnasayfaHeader() {
 
       {/* CTA */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-        <Link href="#" style={{
+        <Link href="/giris" style={{
           background: 'linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%)',
           color: '#fff', fontWeight: 700, fontSize: '13.5px',
           padding: '11px 22px', borderRadius: '999px',
