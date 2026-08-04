@@ -84,7 +84,7 @@ export default function AnasayfaFooter() {
         <div>
           <h5 style={{ color: '#fff', fontSize: '12px', fontWeight: 800, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: '22px' }}>ZİYARET</h5>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {[{ href: '#', label: 'Randevu Al' }, { href: '#', label: 'Rezervasyon Koşulları' }, { href: '#', label: 'Sıkça Sorulan Sorular' }, { href: '#', label: 'Gizlilik Politikası' }].map(l => (
+            {[{ href: '/giris', label: 'Randevu Al' }, { href: '#', label: 'Rezervasyon Koşulları' }, { href: '#', label: 'Sıkça Sorulan Sorular' }, { href: '#', label: 'Gizlilik Politikası' }].map(l => (
               <a key={l.label} href={l.href} style={{ color: 'rgba(187,247,208,0.65)', fontSize: '13.5px', transition: 'color 0.2s' }}
                  onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(187,247,208,0.65)')}>
