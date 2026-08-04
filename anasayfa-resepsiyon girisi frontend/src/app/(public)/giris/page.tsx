@@ -46,8 +46,8 @@ export default function LoginPage() {
       <div className="w-[260px] bg-[#163a22] flex flex-col text-white z-20">
         <div className="pt-8">
           <div className="text-center mb-8">
-            <div className="w-[85px] h-[85px] bg-white rounded-full p-1 mx-auto mb-2.5 shadow-[0_4px_10px_rgba(0,0,0,0.15)] flex items-center justify-center">
-              <span className="text-[#163a22] font-bold text-xl">OGM</span>
+            <div className="w-[85px] h-[85px] bg-white rounded-full p-1 mx-auto mb-2.5 shadow-[0_4px_10px_rgba(0,0,0,0.15)] flex items-center justify-center overflow-hidden">
+              <Image src="/ogm.logo.png" alt="OGM Logo" width={85} height={85} className="object-contain" />
             </div>
             <h2 className="text-[1.1rem] font-bold tracking-[0.5px]">OGM MİSAFİRHANE</h2>
             <p className="text-[0.8rem] text-[#8bb197] mt-0.5">Rezervasyon Portalı</p>
@@ -88,61 +88,60 @@ export default function LoginPage() {
           </div>
 
           {/* KARTLAR & KAYIT BUTONU */}
-          <div className={`w-full max-w-[900px] relative z-10 transition-all duration-300 ${showForm ? 'opacity-0 -translate-y-2 pointer-events-none absolute' : 'opacity-100 translate-y-0'}`}>
-            <div className="flex gap-5 justify-between w-full">
-              
-              {/* Misafir */}
-              <div 
-                className="bg-white flex-1 rounded-lg p-10 px-6 text-center shadow-[0_4px_15px_rgba(0,0,0,0.03)] border-l-[5px] border-[#2b5e39] border-t border-r border-b border-[#eaeaea] flex flex-col items-center transition-all duration-400 cursor-pointer hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_30px_rgba(0,0,0,0.08)] hover:border-l-[#1a4225] group"
-                onClick={() => handleCardClick('Misafir', 'E-posta adresiniz ve şifrenizle giriş yapın', 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z', '/misafir-kayit')}
-              >
-                <div className="w-[65px] h-[65px] mb-5 text-[#437652] group-hover:scale-110 transition-transform duration-300">
-                  <svg viewBox="0 0 24 24" className="w-full h-full fill-current"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          {!showForm ? (
+            <div className="w-full max-w-[900px] relative z-10 transition-all duration-300 animate-[fadeSlideIn_0.35s_ease]">
+              <div className="flex gap-5 justify-between w-full">
+                
+                {/* Misafir */}
+                <div 
+                  className="bg-white flex-1 rounded-lg p-10 px-6 text-center shadow-[0_4px_15px_rgba(0,0,0,0.03)] border-l-[5px] border-[#2b5e39] border-t border-r border-b border-[#eaeaea] flex flex-col items-center transition-all duration-400 cursor-pointer hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_30px_rgba(0,0,0,0.08)] hover:border-l-[#1a4225] group"
+                  onClick={() => handleCardClick('Misafir', 'E-posta adresiniz ve şifrenizle giriş yapın', 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z', '/misafir-kayit')}
+                >
+                  <div className="w-[65px] h-[65px] mb-5 text-[#437652] group-hover:scale-110 transition-transform duration-300">
+                    <svg viewBox="0 0 24 24" className="w-full h-full fill-current"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  </div>
+                  <h3 className="text-[1.15rem] text-[#222] mb-2 font-semibold">Misafir</h3>
+                  <p className="text-[0.85rem] text-[#666] leading-[1.4] mb-8 min-h-[40px]">Dışarıdan misafir olarak giriş yapın</p>
+                  <span className="bg-[#3b6b4a] text-white px-7 py-2.5 rounded-md text-[0.9rem] font-medium transition-colors hover:bg-[#2b5e39]">Seç →</span>
                 </div>
-                <h3 className="text-[1.15rem] text-[#222] mb-2 font-semibold">Misafir</h3>
-                <p className="text-[0.85rem] text-[#666] leading-[1.4] mb-8 min-h-[40px]">Dışarıdan misafir olarak giriş yapın</p>
-                <span className="bg-[#3b6b4a] text-white px-7 py-2.5 rounded-md text-[0.9rem] font-medium transition-colors hover:bg-[#2b5e39]">Seç →</span>
+
+                {/* Personel Yakını */}
+                <div 
+                  className="bg-[#fcfffd] flex-1 rounded-lg p-10 px-6 text-center shadow-[0_6px_20px_rgba(22,58,34,0.08)] border-2 border-[#bce3cc] border-l-[5px] border-l-[#2b5e39] flex flex-col items-center transition-all duration-400 cursor-pointer hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_35px_rgba(22,58,34,0.15)] group"
+                  onClick={() => handleCardClick('Personel Yakını', 'OGM personelinin yakını olarak giriş yapın', '', '/personel-yakini-dogrulama')}
+                >
+                  <div className="w-[65px] h-[65px] mb-5 text-[#437652] group-hover:scale-110 transition-transform duration-300">
+                    <svg viewBox="0 0 24 24" className="w-full h-full fill-current"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-3 2c-2.67 0-8 1.34-8 4v2h16v-2c0-.42.09-.81.25-1.18-.75-.4-1.7-.68-2.85-.82H9zm11 0c-1.85 0-3.15 1.5-3.15 2.5 0 2 3.15 4.5 3.15 4.5s3.15-2.5 3.15-4.5c0-1-1.3-2.5-3.15-2.5z"/></svg>
+                  </div>
+                  <h3 className="text-[1.15rem] text-[#222] mb-2 font-semibold">Personel Yakını</h3>
+                  <p className="text-[0.85rem] text-[#666] leading-[1.4] mb-8 min-h-[40px]">OGM personelinin yakını olarak giriş yapın</p>
+                  <span className="bg-[#3b6b4a] text-white px-7 py-2.5 rounded-md text-[0.9rem] font-medium transition-colors hover:bg-[#2b5e39]">Seç →</span>
+                </div>
+
+                {/* Personel */}
+                <div 
+                  className="bg-white flex-1 rounded-lg p-10 px-6 text-center shadow-[0_4px_15px_rgba(0,0,0,0.03)] border-l-[5px] border-[#2b5e39] border-t border-r border-b border-[#eaeaea] flex flex-col items-center transition-all duration-400 cursor-pointer hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_30px_rgba(0,0,0,0.08)] hover:border-l-[#1a4225] group"
+                  onClick={() => handleCardClick('Personel', 'E-posta adresiniz ve şifrenizle giriş yapın', 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm4 12H8v-1c0-1.33 2.67-2 4-2s4 .67 4 2v1zm4-6h-4v-2h4v2zm0-4h-4V7h4v2z', '/personel-girisi')}
+                >
+                  <div className="w-[65px] h-[65px] mb-5 text-[#437652] group-hover:scale-110 transition-transform duration-300">
+                    <svg viewBox="0 0 24 24" className="w-full h-full fill-current"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm4 12H8v-1c0-1.33 2.67-2 4-2s4 .67 4 2v1zm4-6h-4v-2h4v2zm0-4h-4V7h4v2z"/></svg>
+                  </div>
+                  <h3 className="text-[1.15rem] text-[#222] mb-2 font-semibold">Personel</h3>
+                  <p className="text-[0.85rem] text-[#666] leading-[1.4] mb-8 min-h-[40px]">OGM personeli olarak giriş yapın</p>
+                  <span className="bg-[#3b6b4a] text-white px-7 py-2.5 rounded-md text-[0.9rem] font-medium transition-colors hover:bg-[#2b5e39]">Seç →</span>
+                </div>
+
               </div>
 
-              {/* Personel Yakını */}
-              <div 
-                className="bg-[#fcfffd] flex-1 rounded-lg p-10 px-6 text-center shadow-[0_6px_20px_rgba(22,58,34,0.08)] border-2 border-[#bce3cc] border-l-[5px] border-l-[#2b5e39] flex flex-col items-center transition-all duration-400 cursor-pointer hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_35px_rgba(22,58,34,0.15)] group"
-                onClick={() => handleCardClick('Personel Yakını', 'OGM personelinin yakını olarak giriş yapın', '', '/personel-yakini-dogrulama')}
-              >
-                <div className="w-[65px] h-[65px] mb-5 text-[#437652] group-hover:scale-110 transition-transform duration-300">
-                  <svg viewBox="0 0 24 24" className="w-full h-full fill-current"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-3 2c-2.67 0-8 1.34-8 4v2h16v-2c0-.42.09-.81.25-1.18-.75-.4-1.7-.68-2.85-.82H9zm11 0c-1.85 0-3.15 1.5-3.15 2.5 0 2 3.15 4.5 3.15 4.5s3.15-2.5 3.15-4.5c0-1-1.3-2.5-3.15-2.5z"/></svg>
-                </div>
-                <h3 className="text-[1.15rem] text-[#222] mb-2 font-semibold">Personel Yakını</h3>
-                <p className="text-[0.85rem] text-[#666] leading-[1.4] mb-8 min-h-[40px]">OGM personelinin yakını olarak giriş yapın</p>
-                <span className="bg-[#3b6b4a] text-white px-7 py-2.5 rounded-md text-[0.9rem] font-medium transition-colors hover:bg-[#2b5e39]">Seç →</span>
+              <div className="flex justify-center mt-6">
+                <Link href="/uye-ol" className="inline-flex items-center gap-2 bg-transparent text-[#2b5e39] border-2 border-[#2b5e39] py-2.5 px-9 rounded-full text-[0.92rem] font-semibold tracking-wide transition-all duration-250 hover:bg-[#2b5e39] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(43,94,57,0.25)] group">
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  Kayıt Ol
+                </Link>
               </div>
-
-              {/* Personel */}
-              <div 
-                className="bg-white flex-1 rounded-lg p-10 px-6 text-center shadow-[0_4px_15px_rgba(0,0,0,0.03)] border-l-[5px] border-[#2b5e39] border-t border-r border-b border-[#eaeaea] flex flex-col items-center transition-all duration-400 cursor-pointer hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_30px_rgba(0,0,0,0.08)] hover:border-l-[#1a4225] group"
-                onClick={() => handleCardClick('Personel', 'E-posta adresiniz ve şifrenizle giriş yapın', 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm4 12H8v-1c0-1.33 2.67-2 4-2s4 .67 4 2v1zm4-6h-4v-2h4v2zm0-4h-4V7h4v2z', '/personel-girisi')}
-              >
-                <div className="w-[65px] h-[65px] mb-5 text-[#437652] group-hover:scale-110 transition-transform duration-300">
-                  <svg viewBox="0 0 24 24" className="w-full h-full fill-current"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm4 12H8v-1c0-1.33 2.67-2 4-2s4 .67 4 2v1zm4-6h-4v-2h4v2zm0-4h-4V7h4v2z"/></svg>
-                </div>
-                <h3 className="text-[1.15rem] text-[#222] mb-2 font-semibold">Personel</h3>
-                <p className="text-[0.85rem] text-[#666] leading-[1.4] mb-8 min-h-[40px]">OGM personeli olarak giriş yapın</p>
-                <span className="bg-[#3b6b4a] text-white px-7 py-2.5 rounded-md text-[0.9rem] font-medium transition-colors hover:bg-[#2b5e39]">Seç →</span>
-              </div>
-
             </div>
-
-            <div className="flex justify-center mt-6">
-              <Link href="/uye-ol" className="inline-flex items-center gap-2 bg-transparent text-[#2b5e39] border-2 border-[#2b5e39] py-2.5 px-9 rounded-full text-[0.92rem] font-semibold tracking-wide transition-all duration-250 hover:bg-[#2b5e39] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(43,94,57,0.25)] group">
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                Kayıt Ol
-              </Link>
-            </div>
-          </div>
-
-          {/* GİRİŞ FORMU */}
-          {showForm && (
-            <div className="w-full max-w-[440px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 animate-[fadeSlideIn_0.35s_ease]">
+          ) : (
+            <div className="w-full max-w-[440px] relative z-10 animate-[fadeSlideIn_0.35s_ease]">
               <div className="bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] overflow-hidden border border-[#eaeaea]">
                 
                 <div className="bg-[#163a22] p-5 px-7 flex items-center justify-between">
