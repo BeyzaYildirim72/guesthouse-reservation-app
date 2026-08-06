@@ -5,7 +5,7 @@ export default function AnasayfaLocation() {
         <div style={{ textAlign: 'center', maxWidth: '620px', margin: '0 auto 54px' }}>
           <div style={{ textTransform: 'uppercase', fontSize: '12px', fontWeight: 700, letterSpacing: '.14em', color: 'var(--mid)' }}>Konum</div>
           <h2 style={{ fontSize: '34px', fontWeight: 900, letterSpacing: '-0.02em', marginTop: '10px' }}>Bizi Bulun</h2>
-          <p style={{ color: '#5b6c5c', fontSize: '15px', marginTop: '12px', lineHeight: 1.7 }}>Aksu / Antalya'daki misafirhanemize kolayca ulaşabilirsiniz.</p>
+          <p style={{ color: '#5b6c5c', fontSize: '15px', marginTop: '12px', lineHeight: 1.7 }}>Çankaya / Ankara'daki misafirhanemize kolayca ulaşabilirsiniz.</p>
         </div>
         <div style={{ maxWidth: '980px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 70px rgba(15,42,15,0.16)', border: '1px solid var(--line)' }}>
           <div style={{ height: '420px', width: '100%', background: 'linear-gradient(135deg, #eef5ee 0%, #dcecdd 55%, #cfe8d1 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
@@ -13,7 +13,7 @@ export default function AnasayfaLocation() {
               <div style={{ fontSize: '46px' }}>📍</div>
               <div style={{ background: '#fff', borderRadius: '12px', padding: '14px 18px', boxShadow: '0 10px 30px rgba(15,42,15,0.15)', textAlign: 'left' }}>
                 <strong style={{ fontSize: '13.5px', display: 'block', marginBottom: '3px' }}>OGM Misafirhane</strong>
-                <span style={{ fontSize: '12px', color: '#6b7d6b' }}>Aksu / Antalya, Türkiye</span>
+                <span style={{ fontSize: '12px', color: '#6b7d6b' }}>Çankaya / Ankara, Türkiye</span>
               </div>
             </div>
           </div>
@@ -22,7 +22,7 @@ export default function AnasayfaLocation() {
               <span style={{ fontSize: '20px' }}>📍</span>
               <div>
                 <strong style={{ display: 'block', fontSize: '14px' }}>OGM Misafirhane, Aksu</strong>
-                <span style={{ fontSize: '12.5px', color: '#6b7d6b' }}>Antalya, Türkiye</span>
+                <span style={{ fontSize: '12.5px', color: '#6b7d6b' }}>Ankara, Türkiye</span>
               </div>
             </div>
             <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" style={{

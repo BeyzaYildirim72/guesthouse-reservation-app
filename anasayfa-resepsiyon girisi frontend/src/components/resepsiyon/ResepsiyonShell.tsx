@@ -174,17 +174,18 @@ export default function ResepsiyonShell({ children }: { children: React.ReactNod
               </div>
               <span style={{ color: "#fff", fontSize: "14px", fontWeight: 500 }}>Hoş Geldiniz</span>
             </div>
-            <button style={{
+            <Link href="/" style={{
               display: "flex", alignItems: "center", gap: "7px",
               padding: "7px 14px", borderRadius: "8px",
               border: "1px solid #166534",
               backgroundColor: "transparent",
               color: "#86efac", fontSize: "13px", cursor: "pointer",
               fontWeight: 500,
+              textDecoration: "none",
             }}>
               <i className="pi pi-sign-out" style={{ fontSize: "12px" }} />
               Çıkış Yap
-            </button>
+            </Link>
           </div>
         </header>
 
